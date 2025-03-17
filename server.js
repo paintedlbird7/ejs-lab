@@ -56,21 +56,21 @@ const RESTAURANT = {
 
 // GET home
 app.get('/', (req, res) => {
-  res.send('Hello There home!');
-  // res.render('home', { restaurant: RESTAURANT });
+  // res.send('Hello There home!');
+  res.render('home', { restaurant: RESTAURANT });
 });
 
 app.get('/menu', (req, res) => {
-  res.send('Hello There menu!');
-  // res.render('menu', { menu: RESTAURANT.menu });
+  // res.send('Hello There menu!');
+  res.render('menu', { menu: RESTAURANT.menu });
 });
 
 // GET menu category
 app.get('/menu/:category', (req, res) => {
-  res.send('Hello There menu category!');
-  // const category = req.params.category;
-  // const menuItems = RESTAURANT.menu.filter(item => item.category === category);
-  // res.render('category', { category, menuItems });
+  // res.send('Hello There menu category!');
+  const category = req.params.category;
+  const menuItems = RESTAURANT.menu.filter(item => item.category === category);
+  res.render('category', { category, menuItems });
 });
 
 app.listen(PORT, () => {
